@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orders – Pizza Zone & Cafe</title>
+    <link rel='stylesheet' href='css/style.css' media='all' />
+    <link rel='stylesheet' href='css/bootstrap.css' media='all' />
+    <link rel='stylesheet' href='css/main.css' media='all' />
+    <link rel='stylesheet' href='css/extracted-inline.css' media='all' />
+<link rel='stylesheet' href='wp-content/themes/cheezka/assets/css/fontawesome4d80.css' media='all' />
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Lato|Nunito+Sans:300,400,700,800,900&subset=latin,latin-ext' media='all' />
+    <link rel="icon" href="wp-content/uploads/2020/11/favicon.ico" />
+    <link rel='stylesheet' href='css/orders-inline.css' media='all' />
+</head>
+
+<body class="page lines">
+
+<div class="top-fixed">
+  <div class="container navp0">
+    <div class="row overflows smallscreen-wrapper align-items-center">
+      <div class="col pt-1 pb-1">
+        <nav class="navbar pl-0 pr-0 navbar-expand-lg minicartfix">
+          <a class="navbar-brand" href='index.html' title='Pizza Zone & Cafe' rel='home'>
+            <img src='assets/images/2020/12/Logo_light.svg' alt='Pizza Zone & Cafe'>
+          </a>
+          <button class="navbar-toggler first-button pt-1" type="button" data-toggle="collapse"
+            data-target="#main_nav" aria-controls="main_nav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="animated-icon1"><span></span><span></span><span></span></span>
+          </button>
+          <div class="justify-content-end custom-mega-menu custom-mega-menub collapse navbar-collapse" id="main_nav">
+            <ul id="menu-menu-1" class="navbar-nav">
+              <li class="menu-item"><a href="index.html">HOME</a></li>
+              <li class="menu-item"><a href="shop.html">SHOP</a></li>
+              <li class="menu-item"><a href="about.html">ABOUT</a></li>
+              <li class="menu-item"><a href="contact.html">CONTACT</a></li>
+              <li class="menu-item"><a href="orders.html" class="ck-nav-active">ORDERS</a></li>
+              <li class="menu-item ck-ml-8"><a href="contact.html" class="ck-nav-cta"><i class="fa fa-envelope ck-mr-6"></i>CONTACT US</a></li>
+              <li class="menu-item ck-ml-8"><a href="login.html" class="ck-nav-cta"><i class="fa fa-sign-in-alt ck-mr-6"></i>LOGIN</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+<main>
+  <div class="page-banner">
+    <div class="container">
+      <h1>Online Orders</h1>
+      <p>Live orders saved in PostgreSQL database</p>
+    </div>
+  </div>
+
+  <div class="container ck-pb-60">
+    <div id="status-box" class="status-box"></div>
+    <div class="refresh-meta">
+      <span id="last-updated">Last updated: --</span>
+      <button id="refresh-orders-btn" class="status-save-btn ck-pad-7-12">Refresh Orders</button>
+    </div>
+    <div id="orders-list">
+      <div class="empty-box">Loading orders...</div>
+    </div>
+  </div>
+</main>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/script.js"></script>
+<script src="js/prevent-refresh.js"></script>
+<script src="js/navbar-profile.js"></script>
+<script>
+(function () {
+  "use strict";
+
+  var API_URL = "http://localhost:8000/api/orders/list";
+  var UPDATE_URL_BASE = "http://localhost:8000/api/orders/";
+
+  function setStatus(message, isError) {
+    var box = document.getElementById("status-box");
+    if (!box) return;
+
+    box.style.display = "block";
+    box.className = "status-box " + (isError ? "err" : "ok");
+    box.textContent = message;
+  }
+
+  function escapeHtml(text) {
+    return String(text || "")
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/\"/g, "&quot;")
+      .replace(/'/g, "&#039;");
+  }
+
+  function render(orders) {
+    var host = document.getElementById("orders-list");
+    if (!host) return;
+
+    if (!orders || !orders.length) {
+      host.innerHTML = '<div class="empty-box">No online orders found.</div>';
+      return;
+    }
+
+    host.innerHTML = orders.map(function (order) {
+      var items = (order.items || []).map(function (item) {
+        var lineTotal = (item.qty || 0) * (item.price || 0);
+        return (
+          '<div class="item-row">' +
+            '<div>' +
+              '<div class="item-name">' + escapeHtml(item.name) + '</div>' +
+              '<div class="item-info">Size: ' + escapeHtml(item.size) + ' | Qty: ' + escapeHtml(item.qty) + '</div>' +
+            '</div>' +
+            '<div class="item-price">Rs. ' + lineTotal + '</div>' +
+          '</div>'
+        );
+      }).join("");
+
+      return (
+        '<div class="order-card">' +
+          '<div class="order-head">' +
+            '<div>' +
+              '<div class="order-id">' + escapeHtml(order.order_id) + '</div>' +
+              '<div class="order-date">' + new Date(order.created_at).toLocaleString() + '</div>' +
+            '</div>' +
+            '<div class="order-status">' + escapeHtml(order.status) + '</div>' +
+          '</div>' +
+          '<div class="meta-grid">' +
+            '<div class="meta-box"><div class="meta-title">Customer</div><div class="meta-value">' + escapeHtml(order.customer_name) + '</div></div>' +
+            '<div class="meta-box"><div class="meta-title">Phone</div><div class="meta-value">' + escapeHtml(order.customer_phone) + '</div></div>' +
+            '<div class="meta-box"><div class="meta-title">Address</div><div class="meta-value">' + escapeHtml(order.customer_address) + '</div></div>' +
+            '<div class="meta-box"><div class="meta-title">Payment</div><div class="meta-value">' + escapeHtml(order.payment_method) + '</div></div>' +
+          '</div>' +
+          (order.notes ? '<div class="meta-box ck-mb-10"><div class="meta-title">Notes</div><div class="meta-value">' + escapeHtml(order.notes) + '</div></div>' : '') +
+          '<div class="items-wrap">' + items + '</div>' +
+          '<div class="order-total">Total: Rs. ' + escapeHtml(order.total) + '</div>' +
+          '<div class="status-editor">' +
+            '<select class="status-select" data-order-id="' + escapeHtml(order.order_id) + '">' +
+              '<option value="Pending"' + (order.status === 'Pending' ? ' selected' : '') + '>Pending</option>' +
+              '<option value="Preparing"' + (order.status === 'Preparing' ? ' selected' : '') + '>Preparing</option>' +
+              '<option value="Delivered"' + (order.status === 'Delivered' ? ' selected' : '') + '>Delivered</option>' +
+              '<option value="Cancelled"' + (order.status === 'Cancelled' ? ' selected' : '') + '>Cancelled</option>' +
+            '</select>' +
+            '<button class="status-save-btn" data-order-id="' + escapeHtml(order.order_id) + '">Save Status</button>' +
+          '</div>' +
+        '</div>'
+      );
+    }).join("");
+
+    host.querySelectorAll('.status-save-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var orderId = btn.getAttribute('data-order-id');
+        var select = host.querySelector('.status-select[data-order-id="' + orderId + '"]');
+        if (!select) return;
+
+        btn.disabled = true;
+        btn.textContent = 'Saving...';
+
+        fetch(UPDATE_URL_BASE + encodeURIComponent(orderId) + '/status', {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ status: select.value })
+        })
+          .then(function (response) {
+            if (!response.ok) {
+              return response.json().then(function (err) {
+                throw new Error((err && err.detail) || 'Status update failed');
+              });
+            }
+            return response.json();
+          })
+          .then(function () {
+            setStatus('Order status updated for ' + orderId, false);
+            return fetch(API_URL).then(function (r) { return r.json(); });
+          })
+          .then(function (orders) {
+            render(orders);
+          })
+          .catch(function (err) {
+            setStatus(err.message, true);
+          })
+          .finally(function () {
+            btn.disabled = false;
+            btn.textContent = 'Save Status';
+          });
+      });
+    });
+  }
+
+  function updateLastUpdated() {
+    var el = document.getElementById('last-updated');
+    if (!el) return;
+    el.textContent = 'Last updated: ' + new Date().toLocaleTimeString();
+  }
+
+  function fetchOrders(showErrorBox) {
+    return fetch(API_URL)
+      .then(function (response) {
+        if (!response.ok) {
+          throw new Error('Could not fetch orders');
+        }
+        return response.json();
+      })
+      .then(function (orders) {
+        render(orders);
+        setStatus('Connected to backend. Showing latest online orders.', false);
+        updateLastUpdated();
+      })
+      .catch(function (err) {
+        if (showErrorBox) {
+          setStatus('Failed to load orders. Make sure backend is running.', true);
+          render([]);
+        }
+        console.error(err);
+      });
+  }
+
+  fetchOrders(true);
+
+  var refreshBtn = document.getElementById('refresh-orders-btn');
+  if (refreshBtn) {
+    refreshBtn.addEventListener('click', function () {
+      fetchOrders(true);
+    });
+  }
+})();
+</script>
+</body>
+</html>

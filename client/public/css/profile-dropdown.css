@@ -1,0 +1,79 @@
+.profile-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 10px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  min-width: 200px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  z-index: 999;
+}
+
+.profile-dropdown.ck-open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.ck-profile-dd__header {
+  padding: 15px 20px;
+  border-bottom: 1px solid #eee;
+  text-align: left;
+}
+
+.ck-profile-dd__title {
+  margin: 0;
+  font-weight: bold;
+  color: #333;
+  font-size: 16px;
+  line-height: 1.2;
+}
+
+.ck-profile-dd__email {
+  margin: 5px 0 0;
+  font-size: 13px;
+  color: #777;
+  line-height: 1.2;
+}
+
+.profile-dropdown a, 
+.profile-dropdown button {
+  display: block;
+  padding: 12px 20px;
+  color: #555 !important;
+  text-decoration: none;
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.2s;
+  font-family: inherit;
+}
+
+.profile-dropdown a:hover, 
+.profile-dropdown button:hover {
+  background-color: #f9f9f9;
+  color: #FF6B35 !important;
+}
+
+.ck-mr-6 {
+  margin-right: 6px;
+}
+.ck-pos-rel {
+  position: relative !important;
+}
+
+@media (max-width: 991px) {
+  .profile-dropdown {
+    right: auto;
+    left: 0;
+    min-width: 250px;
+  }
+}

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard – Pizza Zone & Cafe</title>
+    <link rel='stylesheet' href='css/style.css' media='all' />
+    <link rel='stylesheet' href='css/bootstrap.css' media='all' />
+    <link rel='stylesheet' href='css/main.css' media='all' />
+    <link rel='stylesheet' href='css/extracted-inline.css' media='all' />
+<link rel='stylesheet' href='wp-content/themes/cheezka/assets/css/fontawesome4d80.css' media='all' />
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Lato|Nunito+Sans:300,400,700,800,900&subset=latin,latin-ext' media='all' />
+    <link rel="icon" href="wp-content/uploads/2020/11/favicon.ico" />
+    <link rel='stylesheet' href='css/dashboard-inline.css' media='all' />
+</head>
+
+<body class="page lines">
+
+
+<div class="top-fixed">
+  <div class="container navp0">
+    <div class="row overflows smallscreen-wrapper align-items-center">
+      <div class="col pt-1 pb-1">
+        <nav class="navbar pl-0 pr-0 navbar-expand-lg minicartfix">
+          <a class="navbar-brand" href='index.html' title='Pizza Zone & Cafe' rel='home'>
+            <img src='assets/images/2020/12/Logo_light.svg' alt='Pizza Zone & Cafe'>
+          </a>
+          <button class="navbar-toggler first-button pt-1" type="button" data-toggle="collapse"
+            data-target="#main_nav" aria-controls="main_nav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="animated-icon1"><span></span><span></span><span></span></span>
+          </button>
+          <div class="justify-content-end custom-mega-menu custom-mega-menub collapse navbar-collapse" id="main_nav">
+            <ul id="menu-menu-1" class="navbar-nav">
+              <li class="menu-item"><a href="index.html">HOME</a></li>
+              <li class="menu-item"><a href="shop.html">SHOP</a></li>
+              <li class="menu-item"><a href="about.html">ABOUT</a></li>
+              <li class="menu-item"><a href="contact.html">CONTACT</a></li>
+              <li class="menu-item"><a href="orders.html">ORDERS</a></li>
+              <li class="menu-item ck-ml-8"><a href="contact.html" class="ck-nav-cta"><i class="fa fa-envelope ck-mr-6"></i>CONTACT US</a></li>
+              <li class="menu-item current-menu-item"><a href="dashboard.html" class="ck-nav-active"><i class="fa fa-user-circle"></i> DASHBOARD</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+<main>
+
+
+<div class="page-banner">
+  <div class="container">
+    <h1>Your Dashboard</h1>
+    <p>Manage your account and view blogs</p>
+  </div>
+</div>
+
+
+<div class="container dashboard-wrapper">
+  <div class="row">
+    <div class="col-lg-12 col-12">
+
+      
+      <div class="user-card ck-hidden" id="user-card">
+        <h2 id="user-name">Welcome back!</h2>
+        <div class="user-email" id="user-email"></div>
+        <button class="logout-btn" onclick="logout()">
+          <i class="fa fa-sign-out-alt ck-mr-8"></i>Logout
+        </button>
+      </div>
+
+      
+      <div id="api-status" class="api-status ck-hidden"></div>
+
+      
+      <h2 class="section-title">Latest Blog Posts</h2>
+      
+      <div id="blogs-container">
+        <div class="loading">
+          <i class="fa fa-spinner"></i> Loading blogs...
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+</main>
+
+
+<div class="footer-wrapper">
+  <div class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 col-md-12">
+          <aside class="footer-widgets-outer-wrapper">
+            <div class="row footer-widgets-wrapper">
+
+              <div class="footer-widgets col-lg col-md-6 col-12 grid-item">
+                <div class="widget widget_text"><div class="widget-content"><div class="textwidget"><h4 style="color:#007B99; font-weight:900;">PIZZA ZONE & CAFÉ</h4><p>Best pizzas, burgers, shawarma &amp; beverages in town!</p></div></div></div>
+              </div>
+
+              <div class="footer-widgets col-lg col-md-6 col-12 grid-item">
+                <div class="widget_text widget widget_custom_html"><div class="widget_text widget-content"><h2 class="widget-title">Free Home Delivery</h2><div class="textwidget custom-html-widget">
+                  <h5 class="footercta"><i class="fa fa-phone-alt"></i> 0309-7150999</h5>
+                  <h5 class="footercta"><i class="fa fa-phone-alt"></i> 0310-7150999</h5>
+                </div></div></div>
+              </div>
+
+              <div class="footer-widgets col-lg col-md-6 col-12 grid-item">
+                <div class="widget_text widget widget_custom_html"><div class="widget_text widget-content"><h2 class="widget-title">Contacts & Address</h2><div class="textwidget custom-html-widget">
+                  <ul class="footerul">
+                    <li class="footerul1"><i class="fa fa-location-arrow"></i> Address</li>
+                    <li class="footerul2 mb-1">IBRAHIM PLAZA, SHALIMAR ARCADE, NAI WALA ROAD, NEAR BANK AL-HABIB, HARAPPA STATION.</li>
+                    <li class="footerul1"><i class="fa fa-clock"></i> Free Home Delivery (1.5 KM)</li>
+                    <li class="footerul2 footerul3">Minimum Order: <span>Rs. 600/-</span></li>
+                  </ul>
+                </div></div></div>
+              </div>
+
+              <div class="footer-widgets col-lg col-md-6 col-12 grid-item">
+                <div class="widget_text widget widget_custom_html"><div class="widget_text widget-content"><h2 class="widget-title">Quick Links</h2><div class="textwidget custom-html-widget">
+                  <ul class="footerul">
+                    <li class="footerul2"><a href="index.html">Home</a></li>
+                    <li class="footerul2"><a href="shop.html">Shop / Menu</a></li>
+                    <li class="footerul2"><a href="about.html">About Us</a></li>
+                    <li class="footerul2"><a href="contact.html">Contact</a></li>
+                  </ul>
+                </div></div></div>
+              </div>
+
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/script.js"></script>
+<script src="js/prevent-refresh.js"></script>
+<script src="js/navbar-profile.js"></script>
+
+<script>
+// Constants
+const API_BASE_URL = 'http://localhost:8000/api';
+const API_ROOT = 'http://localhost:8000';
+
+// Display user info on page load
+window.addEventListener('load', function() {
+  displayUserInfo();
+  loadBlogs();
+});
+
+// Display User Information
+function displayUserInfo() {
+  const userJson = localStorage.getItem('pizzazone_user') || localStorage.getItem('cheezka_user');
+  
+  if (!userJson) {
+    // Redirect to login if not logged in
+    setTimeout(() => {
+      window.location.href = 'login.html';
+    }, 2000);
+    return;
+  }
+  
+  const user = JSON.parse(userJson);
+  document.getElementById('user-card').style.display = 'block';
+  
+  const name = user.name || user.email.split('@')[0];
+  document.getElementById('user-name').textContent = `Welcome, ${name}!`;
+  document.getElementById('user-email').textContent = user.email;
+}
+
+// Load Blogs from Backend
+async function loadBlogs() {
+  const container = document.getElementById('blogs-container');
+  const statusDiv = document.getElementById('api-status');
+  
+  try {
+    // Test API connection first
+    const healthResponse = await fetch(`${API_ROOT}/health`);
+    if (!healthResponse.ok) {
+      throw new Error('Backend not connected');
+    }
+    
+    // Fetch blogs from API
+    const response = await fetch(`${API_BASE_URL}/blog/list`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    
+    const blogs = await response.json();
+    
+    // Show success message
+    statusDiv.style.display = 'block';
+    statusDiv.className = 'api-status success';
+    statusDiv.innerHTML = '<i class="fa fa-check-circle"></i> Successfully connected to backend API!';
+    
+    if (blogs.length === 0) {
+      container.innerHTML = `
+        <div class="empty-state">
+          <i class="fa fa-file-alt"></i>
+          <h3>No blog posts yet</h3>
+          <p>Check back later for updates!</p>
+        </div>
+      `;
+      return;
+    }
+    
+    // Display blogs
+    container.innerHTML = blogs.map(blog => `
+      <div class="blog-card">
+        <h3>${escapeHtml(blog.title)}</h3>
+        <p>${escapeHtml(blog.body.substring(0, 200))}${blog.body.length > 200 ? '...' : ''}</p>
+        <div class="blog-meta">
+          <i class="fa fa-calendar"></i> ${new Date(blog.created_at).toLocaleDateString()}
+        </div>
+      </div>
+    `).join('');
+    
+  } catch (error) {
+    console.error('Error loading blogs:', error);
+    
+    // Show error message
+    statusDiv.style.display = 'block';
+    statusDiv.className = 'api-status error';
+    statusDiv.innerHTML = '<i class="fa fa-exclamation-circle"></i> Could not connect to backend API. Make sure the server is running on http://localhost:8000';
+    
+    container.innerHTML = `
+      <div class="empty-state">
+        <i class="fa fa-server"></i>
+        <h3>Backend Connection Error</h3>
+        <p>The API server might not be running. Start it with: <code>cd backend && python main.py</code></p>
+      </div>
+    `;
+  }
+}
+
+// Logout Function
+function logout() {
+  localStorage.removeItem('pizzazone_user');
+  localStorage.removeItem('cheezka_user');
+  window.location.href = 'login.html';
+}
+
+// Escape HTML for security
+function escapeHtml(text) {
+  const map = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#039;'
+  };
+  return text.replace(/[&<>"']/g, m => map[m]);
+}
+</script>
+</body>
+</html>

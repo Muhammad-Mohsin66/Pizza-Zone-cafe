@@ -1,0 +1,229 @@
+
+.page-banner {
+            background: linear-gradient(135deg, #0C4C7B 0%, #1B2A49 100%);
+            padding: 110px 0 60px;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .page-banner h1 {
+            color: #fbb731;
+            font-size: 3rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            font-family: 'Nunito Sans', sans-serif;
+        }
+        .page-banner p { color: #fff; font-size: 1.1rem; margin: 0; }
+
+        
+        .section-header { margin-bottom: 25px; }
+        .section-header h2 {
+            color: #1B2A49;
+            font-size: 1.8rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            font-family: 'Nunito Sans', sans-serif;
+            display: inline-block;
+            padding-bottom: 8px;
+            border-bottom: 4px solid #fbb731;
+            margin-bottom: 0;
+        }
+
+        
+        .deal-card {
+            background: #fff;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 4px 22px rgba(0,0,0,0.09);
+            height: 100%;
+            margin-bottom: 25px;
+            border: 2px solid #f6f6f6;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+        .deal-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        .deal-top {
+            background: linear-gradient(135deg, #fbb731 0%, #F37335 100%);
+            color: #fff;
+            padding: 18px 18px 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .deal-top h3 {
+            margin: 0;
+            font-size: 1.1rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            font-family: 'Nunito Sans', sans-serif;
+        }
+        .deal-tag {
+            background: #1B2A49;
+            color: #fbb731;
+            border-radius: 30px;
+            padding: 6px 11px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+        .deal-body {
+            padding: 18px;
+        }
+        .deal-items {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 14px;
+        }
+        .deal-items li {
+            color: #1B2A49;
+            font-weight: 700;
+            font-size: 0.95rem;
+            margin-bottom: 7px;
+            padding-left: 20px;
+            position: relative;
+            font-family: 'Nunito Sans', sans-serif;
+        }
+        .deal-items li:before {
+            content: '\f00c';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            color: #F37335;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .deal-price {
+            color: #F37335;
+            font-size: 2rem;
+            font-weight: 900;
+            font-family: 'Nunito Sans', sans-serif;
+            line-height: 1;
+            margin-bottom: 14px;
+        }
+        .deal-btn {
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 999px;
+            padding: 10px 15px;
+            background: #1B2A49;
+            color: #fbb731 !important;
+            font-weight: 700;
+            transition: background 0.2s ease;
+            font-family: 'Nunito Sans', sans-serif;
+        }
+        .deal-btn:hover { background: #0C4C7B; }
+
+        .deal-note {
+            background: #f5f7fa;
+            border-left: 4px solid #fbb731;
+            padding: 16px 18px;
+            border-radius: 8px;
+            margin-top: 10px;
+            margin-bottom: 35px;
+        }
+        .deal-note p {
+            margin: 0;
+            color: #555;
+            font-size: 0.95rem;
+        }
+
+        
+        .birthday-box {
+            background: linear-gradient(145deg, #1B2A49 0%, #0C4C7B 100%);
+            border-radius: 16px;
+            padding: 35px 28px;
+            color: #fff;
+            margin-bottom: 55px;
+            box-shadow: 0 10px 28px rgba(12,76,123,0.35);
+        }
+        .birthday-box h2 {
+            color: #fbb731;
+            font-size: 2rem;
+            margin-bottom: 12px;
+            font-weight: 800;
+            font-family: 'Nunito Sans', sans-serif;
+            text-transform: uppercase;
+        }
+        .birthday-items {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 0;
+            columns: 2;
+        }
+        .birthday-items li {
+            margin-bottom: 10px;
+            font-weight: 700;
+            color: #fff;
+            position: relative;
+            padding-left: 22px;
+            font-size: 0.98rem;
+        }
+        .birthday-items li:before {
+            content: '\f005';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            color: #fbb731;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .birthday-price {
+            margin-top: 18px;
+            display: inline-block;
+            background: #fbb731;
+            color: #1B2A49;
+            font-size: 2rem;
+            font-weight: 900;
+            line-height: 1;
+            padding: 12px 18px;
+            border-radius: 10px;
+            font-family: 'Nunito Sans', sans-serif;
+        }
+
+        
+        .cta-banner {
+            background: linear-gradient(135deg, #fbb731 0%, #F37335 100%);
+            border-radius: 16px;
+            padding: 45px 30px;
+            text-align: center;
+            margin: 20px 0 60px;
+        }
+        .cta-banner h3 {
+            color: #fff;
+            font-family: 'Nunito Sans', sans-serif;
+            font-weight: 800;
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        .cta-banner p { color: #fff; margin-bottom: 22px; font-size: 1rem; }
+        .btn-dark-cta {
+            background: #1B2A49;
+            color: #fbb731 !important;
+            border-radius: 50px;
+            padding: 12px 30px;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-block;
+            margin: 5px;
+            font-family: 'Nunito Sans', sans-serif;
+        }
+        .btn-white-cta {
+            background: #fff;
+            color: #F37335 !important;
+            border-radius: 50px;
+            padding: 12px 30px;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-block;
+            margin: 5px;
+            font-family: 'Nunito Sans', sans-serif;
+        }
+
+        @media (max-width: 767px) {
+            .page-banner h1 { font-size: 2rem; }
+            .birthday-items { columns: 1; }
+        }

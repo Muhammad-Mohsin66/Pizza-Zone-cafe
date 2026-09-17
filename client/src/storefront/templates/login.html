@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login – Pizza Zone & Cafe</title>
+    <link rel='stylesheet' href='css/style.css' media='all' />
+    <link rel='stylesheet' href='css/bootstrap.css' media='all' />
+    <link rel='stylesheet' href='css/main.css' media='all' />
+    <link rel='stylesheet' href='css/extracted-inline.css' media='all' />
+<link rel='stylesheet' href='wp-content/themes/cheezka/assets/css/fontawesome4d80.css' media='all' />
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Lato|Nunito+Sans:300,400,700,800,900&subset=latin,latin-ext' media='all' />
+    <link rel="icon" href="wp-content/uploads/2020/11/favicon.ico" />
+    <link rel='stylesheet' href='css/login-inline.css' media='all' />
+</head>
+
+<body class="auth-page">
+
+
+<div class="top-fixed">
+  <div class="container navp0">
+    <div class="row overflows smallscreen-wrapper align-items-center">
+      <div class="col pt-1 pb-1">
+        <nav class="navbar pl-0 pr-0 navbar-expand-lg minicartfix">
+          <a class="navbar-brand" href='index.html' title='Pizza Zone & Cafe' rel='home'>
+            <img src='assets/images/2020/12/Logo_light.svg' alt='Pizza Zone & Cafe'>
+          </a>
+          <button class="navbar-toggler first-button pt-1" type="button" data-toggle="collapse"
+            data-target="#main_nav" aria-controls="main_nav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="animated-icon1"><span></span><span></span><span></span></span>
+          </button>
+          <div class="justify-content-end custom-mega-menu custom-mega-menub collapse navbar-collapse" id="main_nav">
+            <ul id="menu-menu-1" class="navbar-nav">
+              <li class="menu-item"><a href="index.html">HOME</a></li>
+              <li class="menu-item"><a href="shop.html">SHOP</a></li>
+              <li class="menu-item"><a href="about.html">ABOUT</a></li>
+              <li class="menu-item"><a href="contact.html">CONTACT</a></li>
+              <li class="menu-item ck-ml-8"><a href="contact.html" class="ck-nav-cta"><i class="fa fa-envelope ck-mr-6"></i>CONTACT US</a></li>
+              <li class="menu-item ck-ml-8"><a href="login.html" class="ck-nav-cta"><i class="fa fa-sign-in-alt ck-mr-6"></i>LOGIN</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+<main>
+
+
+<div class="auth-wrapper">
+  <div class="auth-card">
+    <div class="auth-header">
+      <img src='assets/images/2020/12/Logo_light1.svg' alt='Pizza Zone & Cafe' class="auth-logo">
+      <h1>Welcome Back!</h1>
+      <p>Login to your Pizza Zone & Cafe account</p>
+    </div>
+
+    <form id="login-form" method="post" action="#">
+      <div class="form-group">
+        <label for="login-email">Email Address</label>
+        <input type="email" id="login-email" name="email" placeholder="your@email.com" required>
+      </div>
+
+      <div class="form-group">
+        <label for="login-password">Password</label>
+        <input type="password" id="login-password" name="password" placeholder="••••••••" required>
+      </div>
+
+      <div class="remember-forgot">
+        <label class="ck-remember-label">
+          <input type="checkbox" name="remember" id="remember-me" class="ck-mr-5"> Remember me
+        </label>
+        <a href="/forgot-password">Forgot password?</a>
+      </div>
+
+      <div id="form-status">
+      </div>
+
+      <button type="submit" class="submit-btn">Login Now</button>
+    </form>
+
+    <div class="signup-link">
+      Don't have an account? <a href="signup.html">Sign up here</a>
+    </div>
+
+    <div class="home-link">
+      <a href="index.html"><i class="fa fa-chevron-left ck-mr-5"></i> Back to Home</a>
+    </div>
+  </div>
+</div>
+
+</main>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/script.js"></script>
+<script src="js/prevent-refresh.js"></script>
+<script src="js/navbar-profile.js"></script>
+
+<script>
+// Save login form data to localStorage
+function saveLoginFormToStorage() {
+  var formData = {
+    email: document.getElementById('login-email').value || "",
+    rememberMe: document.getElementById('remember-me').checked || false
+  };
+  localStorage.setItem('pizzazone_login_form', JSON.stringify(formData));
+  localStorage.setItem('cheezka_login_form', JSON.stringify(formData));
+}
+
+// Restore login form data from localStorage
+function restoreLoginFormFromStorage() {
+  try {
+    var saved = JSON.parse(localStorage.getItem('pizzazone_login_form') || localStorage.getItem('cheezka_login_form') || "{}");
+    if (saved.email) document.getElementById('login-email').value = saved.email;
+    if (saved.rememberMe) document.getElementById('remember-me').checked = saved.rememberMe;
+  } catch (err) {
+    // Silently fail if localStorage is not available
+  }
+}
+
+// Check if user is already logged in
+window.addEventListener('load', function() {
+  var user = localStorage.getItem('pizzazone_user') || localStorage.getItem('cheezka_user');
+  if (!user) {
+    restoreLoginFormFromStorage();
+  }
+});
+
+// Add input listeners to auto-save form data
+document.addEventListener('DOMContentLoaded', function() {
+  var loginEmail = document.getElementById('login-email');
+  var rememberMe = document.getElementById('remember-me');
+  
+  if (loginEmail) {
+    loginEmail.addEventListener('change', saveLoginFormToStorage);
+    loginEmail.addEventListener('input', saveLoginFormToStorage);
+    // Prevent Enter key from submitting accidentally
+    loginEmail.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        document.getElementById('login-password').focus();
+        return false;
+      }
+    });
+  }
+  
+  if (rememberMe) {
+    rememberMe.addEventListener('change', saveLoginFormToStorage);
+  }
+  
+  var loginPassword = document.getElementById('login-password');
+  if (loginPassword) {
+    // Prevent Enter key from submitting accidentally in password field
+    loginPassword.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        // Submit the form when Enter is pressed in password field
+        document.getElementById('login-form').dispatchEvent(new Event('submit'));
+        return false;
+      }
+    });
+  }
+});
+
+// Login Form Handler
+document.getElementById('login-form').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  
+  var email = document.getElementById('login-email').value;
+  var password = document.getElementById('login-password').value;
+  var rememberMe = document.getElementById('remember-me').checked;
+  var statusDiv = document.getElementById('form-status');
+  
+  try {
+    // Validate inputs
+    if (!email || !password) {
+      showError(statusDiv, 'Please fill in all fields');
+      return;
+    }
+    
+    if (password.length < 6) {
+      showError(statusDiv, 'Password must be at least 6 characters');
+      return;
+    }
+    
+    // Show loading state
+    statusDiv.style.display = 'block';
+    statusDiv.style.backgroundColor = '#e3f2fd';
+    statusDiv.style.color = '#0C4C7B';
+    statusDiv.textContent = 'Logging in...';
+    
+    // Simulate API call (in production, uncomment and use your backend endpoint)
+    // const response = await fetch('http://localhost:8000/api/auth/login', {
+    //   method: 'POST',
+    //   headers: { 'Content-Type': 'application/json' },
+    //   body: JSON.stringify({ email, password })
+    // });
+    
+    // For now, simulate successful login after 1 second
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    
+    // Store user data in localStorage
+    var userData = {
+      email: email,
+      rememberMe: rememberMe,
+      loginTime: new Date().toISOString()
+    };
+    
+    localStorage.setItem('pizzazone_user', JSON.stringify(userData));
+    localStorage.setItem('cheezka_user', JSON.stringify(userData));
+    
+    // Clear the saved login form data on successful login
+    localStorage.removeItem('pizzazone_login_form');
+    localStorage.removeItem('cheezka_login_form');
+    
+    // Show success
+    statusDiv.style.backgroundColor = '#c8e6c9';
+    statusDiv.style.color = '#1B2A49';
+    statusDiv.textContent = 'Login successful! Redirecting...';
+    
+    // Redirect after 2 seconds
+    setTimeout(function() {
+      window.location.href = 'index.html';
+    }, 2000);
+    
+  } catch (error) {
+    console.error('Login error:', error);
+    showError(statusDiv, 'An error occurred. Please try again.');
+  }
+});
+
+function showError(element, message) {
+  element.style.display = 'block';
+  element.style.backgroundColor = '#ffcdd2';
+  element.style.color = '#c62828';
+  element.textContent = message;
+}
+</script>
+</body>
+</html>

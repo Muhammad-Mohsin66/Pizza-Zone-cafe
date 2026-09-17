@@ -1,0 +1,108 @@
+
+
+
+.cart-collaterals .cross-sells h2,
+.up-sells.upsells.products h2 {
+  font-size: 28px;
+}
+
+
+.woocommerce ul.products li.product .onsale {
+	min-height: 10px;
+	min-width: 10px;
+	margin: 15px;
+}
+
+
+.lines {
+  background: url(assets/images/lines.png) center center repeat;
+}
+@media all and (max-width: 575px) {
+  .lines {
+    background: #fff;
+  }
+}
+select.orderby {
+  float: right;
+  border-radius: 22px;
+  border: 1px solid #dedede;
+  color: #443737;
+  font-size: 15px;
+  padding-left: 25px;
+  height: 44px;
+  font-family: lato;
+  outline: none;
+  appearance: none;
+  background: url("assets/images/chevron-down.png") right center no-repeat;
+}
+select.orderby:focus {
+  box-shadow: 0px 0px #fff;
+  border: 1px solid #dedede;
+}
+
+
+
+.sa_owl_theme#custom_slide_anything  .owl-nav .owl-prev {
+	border-radius: 500px;
+	width: 30px!important;
+	height: 30px!important;
+	background-size: 10px!important;
+	outline: none!important;
+}
+.sa_owl_theme#custom_slide_anything  .owl-nav .owl-next {
+	border-radius: 500px;
+	width: 30px!important;
+	height: 30px!important;
+	background-size: 10px!important;
+	outline: none!important;
+}
+.sa_owl_theme#custom_slide_anything .owl-dots .owl-dot {
+	display: none!important;
+}
+
+
+
+
+
+.sa_owl_theme#custom_slide_anything2  .owl-nav .owl-prev {
+	border-radius: 500px;
+	width: 30px!important;
+	height: 30px!important;
+	background-size: 10px!important;
+	outline: none!important;
+}
+.sa_owl_theme#custom_slide_anything2  .owl-nav .owl-next {
+	border-radius: 500px;
+	width: 30px!important;
+	height: 30px!important;
+	background-size: 10px!important;
+	outline: none!important;
+}
+.sa_owl_theme#custom_slide_anything2 .owl-dots .owl-dot {
+	display: none!important;
+}
+
+
+
+
+
+.sa_owl_theme#custom_slide_anything3  .owl-nav .owl-prev {
+	border-radius: 500px;
+	width: 30px!important;
+	height: 30px!important;
+	background-size: 10px!important;
+	outline: none!important;
+}
+.sa_owl_theme#custom_slide_anything3  .owl-nav .owl-next {
+	border-radius: 500px;
+	width: 30px!important;
+	height: 30px!important;
+	background-size: 10px!important;
+	outline: none!important;
+}
+.sa_owl_theme#custom_slide_anything3 .owl-dots .owl-dot {
+	display: none!important;
+}
+
+
+

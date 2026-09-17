@@ -1,0 +1,176 @@
+
+.auth-wrapper {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #0C4C7B 0%, #1B2A49 100%);
+            padding: 20px;
+            padding-top: 100px;
+        }
+
+        .auth-card {
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            max-width: 420px;
+            width: 100%;
+            padding: 40px 30px;
+        }
+
+        .auth-header {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+        .auth-logo {
+            width: 64px;
+            height: 56px;
+            margin: 0 auto 16px;
+            display: block;
+        }
+        .auth-header h1 {
+            color: #0C4C7B;
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+            font-family: 'Nunito Sans', sans-serif;
+        }
+        .auth-header p {
+            color: #777;
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+        .form-group label {
+            display: block;
+            color: #1B2A49;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+            font-family: 'Nunito Sans', sans-serif;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 11px 14px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            transition: border-color 0.2s;
+            box-sizing: border-box;
+        }
+        .form-group input:focus {
+            outline: none;
+            border-color: #fbb731;
+        }
+
+        .terms-check {
+            margin-bottom: 24px;
+            font-size: 0.85rem;
+        }
+        .terms-check label {
+            display: flex;
+            align-items: flex-start;
+            margin: 0;
+            color: #666;
+            font-weight: 400;
+        }
+        .terms-check input {
+            margin-top: 4px;
+            margin-right: 6px;
+            width: auto;
+            cursor: pointer;
+        }
+        .terms-check a {
+            color: #F37335;
+            text-decoration: none;
+            font-weight: 700;
+        }
+        .terms-check a:hover { text-decoration: underline; }
+
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #fbb731 0%, #F37335 100%);
+            color: #1B2A49 !important;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: 800;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: transform 0.2s;
+            font-family: 'Nunito Sans', sans-serif;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+        .submit-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .login-link {
+            text-align: center;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        .login-link a {
+            color: #F37335;
+            font-weight: 700;
+            text-decoration: none;
+        }
+        .login-link a:hover { text-decoration: underline; }
+
+        .home-link {
+            text-align: center;
+            margin-top: 14px;
+        }
+        .home-link a {
+            color: #0C4C7B;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        .home-link a:hover { color: #F37335; }
+
+        .password-input-wrapper {
+            position: relative;
+            width: 100%;
+        }
+        .password-input-wrapper input {
+            padding-right: 40px !important;
+        }
+        .password-toggle-btn {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            padding: 0;
+            margin: 0;
+            cursor: pointer;
+            color: #777;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            outline: none;
+            z-index: 10;
+        }
+        .password-toggle-btn:hover {
+            color: #F37335;
+        }
+
+        @media (max-width: 576px) {
+            .auth-card {
+                padding: 30px 20px;
+            }
+            .auth-header h1 {
+                font-size: 1.5rem;
+            }
+        }
