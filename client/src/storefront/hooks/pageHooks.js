@@ -83,48 +83,48 @@ export const getImageUrl = (prod) => {
   if (lower.includes('z20 deal') || lower === 'z20') return '/images/deals/deal_z20.jpg';
   if (lower.includes('mega') || lower.includes('family deal')) return '/images/products/family_deals.jpg';
 
-  if (lower.includes('crown') || lower.includes('extreme') || lower.includes('zone special') || lower.includes('bon fire') || lower.includes('stuffer')) {
-    return '/images/products/zone_special_pizza.jpg';
-  }
-  if (lower.includes('pizza') || lower.includes('tikka') || lower.includes('fajita') || lower.includes('achari') || lower.includes('vegi') || lower.includes('cheese lover') || lower.includes('tandoori') || lower.includes('supreme') || lower.includes('malai boti') || lower.includes('bbq')) {
-    return '/images/products/traditional_pizza.jpg';
-  }
-  if (lower.includes('grill') && lower.includes('burger')) {
-    return '/images/products/grill_burger.jpg';
-  }
-  if (lower.includes('wehshi')) {
-    return '/images/products/grill_burger.jpg';
-  }
-  if (lower.includes('burger')) {
-    return '/images/products/zinger_burger.jpg';
-  }
-  if (lower.includes('shawarma')) {
-    return '/images/products/chicken_shawarma.jpg';
-  }
-  if (lower.includes('paratha') || lower.includes('roll')) {
-    return '/images/products/paratha_roll.jpg';
-  }
-  if (lower.includes('pasta') || lower.includes('macaroni')) {
-    return '/images/products/creamy_pasta.jpg';
-  }
-  if (lower.includes('fries')) {
-    return '/images/products/loaded_fries.jpg';
-  }
-  if (lower.includes('wings') || lower.includes('nuggets') || lower.includes('hot shots') || lower.includes('fried chicken') || lower.includes('fried')) {
-    return '/images/products/fried_chicken.jpg';
-  }
-  if (lower.includes('deal') || lower.includes('family')) {
-    return '/images/products/family_deals.jpg';
-  }
-  if (lower.includes('margarita') || lower.includes('lagoon') || lower.includes('lemonade') || lower.includes('lime') || lower.includes('beverage') || lower.includes('drink')) {
+  // Specific Pizzas Mappings
+  if (lower.includes('tikka')) return '/images/menu/tikka_pizza.png';
+  if (lower.includes('fajita')) return '/images/menu/fajita_pizza.png';
+  if (lower.includes('vegi') || lower.includes('vegetable')) return '/images/menu/vegetable_pizza.png';
+  if (lower.includes('cheese lover') || lower.includes('cheesy pizza')) return '/images/menu/cheese_pizza.png';
+  if (lower.includes('achari') || lower.includes('hot & spicy') || lower.includes('spicy') || lower.includes('tandoori') || lower.includes('bon fire')) return '/images/menu/spicy_pizza.png';
+  if (lower.includes('bbq')) return '/images/menu/bbq_pizza.png';
+  if (lower.includes('kabab')) return '/images/menu/kabab_pizza.png';
+  if (lower.includes('crown') || lower.includes('extreme') || lower.includes('stuffer') || lower.includes('stuff crust') || lower.includes('lazania')) return '/images/menu/stuffed_crust.png';
+  if (lower.includes('zone special') || lower.includes('supreme') || lower.includes('malai boti') || lower.includes('creemi')) return '/images/menu/special_pizza.png';
+  if (lower.includes('pizza')) return '/images/products/traditional_pizza.jpg';
+
+  // Specific Burgers Mappings
+  if (lower.includes('grill') || lower.includes('wehshi') || lower.includes('mighty')) return '/images/products/grill_burger.jpg';
+  if (lower.includes('zinger cheese') || lower.includes('z.s zinger')) return '/images/menu/zinger_cheese_burger.png';
+  if (lower.includes('zinger')) return '/images/menu/zinger_burger.png';
+  if (lower.includes('chapli') || lower.includes('ragi') || lower.includes('patty')) return '/images/menu/patty_burger.png';
+  if (lower.includes('burger')) return '/images/products/zinger_burger.jpg';
+
+  // Shawarmas & Paratha Rolls
+  if (lower.includes('shawarma')) return '/images/menu/chicken_shawarma.png';
+  if (lower.includes('paratha') || lower.includes('roll') || lower.includes('wrap') || lower.includes('twister')) return '/images/menu/paratha_roll.png';
+
+  // Pastas & Macaroni
+  if (lower.includes('crunchy') || lower.includes('macaroni')) return '/images/menu/crunchy_pasta.png';
+  if (lower.includes('pasta')) return '/images/menu/creamy_pasta.png';
+
+  // Fries & Starters
+  if (lower.includes('fries') || lower.includes('sticks')) return '/images/menu/loaded_fries.png';
+  if (lower.includes('wings') || lower.includes('nuggets') || lower.includes('hot shots') || lower.includes('fried chicken')) return '/images/products/fried_chicken.jpg';
+
+  // Drinks & Beverages Mappings
+  if (lower.includes('pepsi')) return '/images/menu/pepsi.png';
+  if (lower.includes('coca') || lower.includes('cola')) return '/images/menu/cocacola.png';
+  if (lower.includes('sprite')) return '/images/menu/sprite.png';
+  if (lower.includes('7up')) return '/images/menu/7up.png';
+  if (lower.includes('fanta')) return '/images/menu/fanta.png';
+  if (lower.includes('drink') || lower.includes('water') || lower.includes('tin') || lower.includes('margarita') || lower.includes('lagoon') || lower.includes('lime') || lower.includes('tea') || lower.includes('chai') || lower.includes('coffee') || lower.includes('latte') || lower.includes('shake') || lower.includes('colada')) {
     return '/images/products/cold_beverage.jpg';
   }
-  if (lower.includes('chai') || lower.includes('tea') || lower.includes('coffee') || lower.includes('cappuccino') || lower.includes('latte') || lower.includes('chocolate')) {
-    return '/images/products/cold_beverage.jpg';
-  }
-  if (lower.includes('shake') || lower.includes('colada')) {
-    return '/images/products/cold_beverage.jpg';
-  }
+
+  // Desserts
   if (lower.includes('cake') || lower.includes('ice creme') || lower.includes('ice cream') || lower.includes('dessert')) {
     return '/images/products/molten_lava_cake.jpg';
   }
