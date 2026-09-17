@@ -57,8 +57,31 @@ export const getImageUrl = (prod) => {
     const serverUrl = apiBase.replace('/api', '');
     return `${serverUrl}${prod.image.startsWith('/') ? '' : '/'}${prod.image}`;
   }
-  const name = prod.name || '';
-  const lower = name.toLowerCase();
+  const name = prod.name || prod.title || '';
+  const lower = name.toLowerCase().trim();
+
+  // Specific Deal Mappings
+  if (lower.includes('z1 deal') || lower === 'z1') return '/images/deals/deal_z1.jpg';
+  if (lower.includes('z2 deal') || lower === 'z2') return '/images/deals/deal_z2.jpg';
+  if (lower.includes('z3 deal') || lower === 'z3') return '/images/deals/deal_z3.jpg';
+  if (lower.includes('z4 deal') || lower === 'z4') return '/images/deals/deal_z4.jpg';
+  if (lower.includes('z5 deal') || lower === 'z5') return '/images/deals/deal_z5.jpg';
+  if (lower.includes('z6 deal') || lower === 'z6') return '/images/deals/deal_z4.jpg';
+  if (lower.includes('z7 deal') || lower === 'z7') return '/images/deals/deal_z7.jpg';
+  if (lower.includes('z8 deal') || lower === 'z8') return '/images/deals/deal_z8.jpg';
+  if (lower.includes('z9 deal') || lower === 'z9') return '/images/deals/deal_z5.jpg';
+  if (lower.includes('z10 deal') || lower === 'z10') return '/images/deals/deal_z10.jpg';
+  if (lower.includes('z11 deal') || lower === 'z11') return '/images/deals/deal_z5.jpg';
+  if (lower.includes('z12 deal') || lower === 'z12') return '/images/deals/deal_z5.jpg';
+  if (lower.includes('z13 deal') || lower === 'z13') return '/images/deals/deal_z13.jpg';
+  if (lower.includes('z14 deal') || lower === 'z14') return '/images/deals/deal_z5.jpg';
+  if (lower.includes('z15 deal') || lower === 'z15') return '/images/deals/deal_z1.jpg';
+  if (lower.includes('z16 deal') || lower === 'z16') return '/images/deals/deal_z16.jpg';
+  if (lower.includes('z17 deal') || lower === 'z17') return '/images/deals/deal_z5.jpg';
+  if (lower.includes('z18 deal') || lower === 'z18') return '/images/deals/deal_z5.jpg';
+  if (lower.includes('z19 deal') || lower === 'z19') return '/images/deals/deal_z5.jpg';
+  if (lower.includes('z20 deal') || lower === 'z20') return '/images/deals/deal_z20.jpg';
+  if (lower.includes('mega') || lower.includes('family deal')) return '/images/products/family_deals.jpg';
 
   if (lower.includes('crown') || lower.includes('extreme') || lower.includes('zone special') || lower.includes('bon fire') || lower.includes('stuffer')) {
     return '/images/products/zone_special_pizza.jpg';
@@ -90,7 +113,7 @@ export const getImageUrl = (prod) => {
   if (lower.includes('wings') || lower.includes('nuggets') || lower.includes('hot shots') || lower.includes('fried chicken') || lower.includes('fried')) {
     return '/images/products/fried_chicken.jpg';
   }
-  if (lower.startsWith('z') && /\d/.test(lower) || lower.includes('deal') || lower.includes('family')) {
+  if (lower.includes('deal') || lower.includes('family')) {
     return '/images/products/family_deals.jpg';
   }
   if (lower.includes('margarita') || lower.includes('lagoon') || lower.includes('lemonade') || lower.includes('lime') || lower.includes('beverage') || lower.includes('drink')) {
@@ -1370,7 +1393,8 @@ export function usePagesPage() {
 
           html += `
             <div class="col-lg-4 col-md-6 col-12 mb-4">
-              <div class="deal-card">
+              <div class="deal-card" style="border-radius:12px; overflow:hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+                <img src="${getImageUrl(deal)}" alt="${deal.title || 'Special Deal'}" style="width:100%; height:200px; object-fit:cover;" />
                 <div class="deal-top"><h3>${deal.title}</h3><span class="deal-tag">${discountText}</span></div>
                 <div class="deal-body">
                   ${deal.products && deal.products.length > 0 && deal.description ? `<p class="deal-desc" style="color:#777; margin-bottom:12px; font-size:0.95rem;">${deal.description}</p>` : ''}

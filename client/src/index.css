@@ -29,25 +29,30 @@ img {
 }
 
 /* Header & Navigation Styling */
-.top-fixed, .header {
+.top-fixed,
+.header {
   background: var(--primary-teal) !important;
   box-shadow: 0 4px 15px rgba(0, 123, 153, 0.25) !important;
 }
 
-.top-fixed a, .navbar-brand, .ck-nav-active, .menu-item a {
+.top-fixed a,
+.navbar-brand,
+.ck-nav-active,
+.menu-item a {
   color: #ffffff !important;
 }
 
 .navbar-brand img {
-  max-height: 72px !important;
-  height: 72px !important;
+  max-height: 100px !important;
+  height: 100px !important;
   width: auto !important;
   object-fit: contain !important;
+  padding: 4px 0 !important;
 }
 
 .auth-logo {
-  max-height: 75px !important;
-  height: 75px !important;
+  max-height: 100px !important;
+  height: 100px !important;
   width: auto !important;
   object-fit: contain !important;
 }
@@ -177,7 +182,8 @@ button.ck-nav-cta:hover * {
   transition: all 0.2s ease;
 }
 
-.size-box.active, .size-box:hover {
+.size-box.active,
+.size-box:hover {
   background: var(--primary-teal) !important;
   color: #ffffff !important;
 }
@@ -188,7 +194,8 @@ button.ck-nav-cta:hover * {
 }
 
 /* Place Order & Cart */
-.place-order-btn, .btn-dark-cta {
+.place-order-btn,
+.btn-dark-cta {
   background: var(--primary-teal) !important;
   color: #ffffff !important;
   font-weight: 900 !important;
@@ -196,16 +203,20 @@ button.ck-nav-cta:hover * {
   transition: background 0.3s ease;
 }
 
-.place-order-btn:hover, .btn-dark-cta:hover {
+.place-order-btn:hover,
+.btn-dark-cta:hover {
   background: var(--dark-teal) !important;
 }
 
-.footer-wrapper, .footer {
+.footer-wrapper,
+.footer {
   background: var(--deep-teal) !important;
   color: #E6F3F7 !important;
 }
 
-.footer h2, .footer h4, .footer a {
+.footer h2,
+.footer h4,
+.footer a {
   color: #ffffff !important;
 }
 
@@ -215,7 +226,8 @@ button.ck-nav-cta:hover * {
   color: #ffffff !important;
 }
 
-.cart-head h4, .cart-close {
+.cart-head h4,
+.cart-close {
   color: #ffffff !important;
 }
 
@@ -234,6 +246,3 @@ button.ck-nav-cta:hover * {
   background: var(--primary-teal);
   border-radius: 10px;
 }
-
-
-
