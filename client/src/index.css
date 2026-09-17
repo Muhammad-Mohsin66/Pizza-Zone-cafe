@@ -39,8 +39,8 @@ img {
 }
 
 .navbar-brand img {
-  max-height: 54px !important;
-  height: 54px !important;
+  max-height: 72px !important;
+  height: 72px !important;
   width: auto !important;
   object-fit: contain !important;
 }
