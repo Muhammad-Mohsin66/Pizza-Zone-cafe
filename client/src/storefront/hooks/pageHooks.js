@@ -60,7 +60,7 @@ export const getImageUrl = (prod) => {
   const name = prod.name || prod.title || '';
   const lower = name.toLowerCase().trim();
 
-  // Specific Deal Mappings
+  // 1. Specific Deal Mappings (Z1 to Z20 & Family Mega Deal)
   if (lower.includes('z1 deal') || lower === 'z1') return '/images/deals/deal_z1.jpg';
   if (lower.includes('z2 deal') || lower === 'z2') return '/images/deals/deal_z2.jpg';
   if (lower.includes('z3 deal') || lower === 'z3') return '/images/deals/deal_z3.jpg';
@@ -83,7 +83,37 @@ export const getImageUrl = (prod) => {
   if (lower.includes('z20 deal') || lower === 'z20') return '/images/deals/deal_z20.jpg';
   if (lower.includes('mega') || lower.includes('family deal')) return '/images/products/family_deals.jpg';
 
-  // Specific Pizzas Mappings
+  // 2. Desserts Sweet
+  if (lower.includes('ice creme') || lower.includes('ice cream')) return '/images/products/ice_cream.jpg';
+  if (lower.includes('lawa') || lower.includes('lava') || lower.includes('cake') || lower.includes('dessert')) return '/images/products/molten_lava_cake.jpg';
+
+  // 3. Shakes & Cold Coffee & Royal Drinks (Checked before pizza!)
+  if (lower.includes('shake')) return '/images/products/power_shake.jpg';
+  if (lower.includes('pina colada') || lower.includes('colada')) return '/images/products/pina_colada.jpg';
+  if (lower.includes('cold coffee') || lower.includes('iced café') || lower.includes('iced cafe') || lower.includes('iced latte')) return '/images/products/cold_coffee.jpg';
+
+  // 4. Hot Beverages (Teas & Hot Coffees)
+  if (lower.includes('kashmiri')) return '/images/products/kashmiri_chai.jpg';
+  if (lower.includes('karak') || lower.includes('cardamom') || lower.includes('green tea') || lower.includes('tea') || lower.includes('chai')) return '/images/products/karak_chai.jpg';
+  if (lower.includes('chocolate') || lower.includes('belgian')) return '/images/products/hot_chocolate.jpg';
+  if (lower.includes('cappuccino') || lower.includes('latte') || lower.includes('coffee') || lower.includes('espresso') || lower.includes('americano')) return '/images/products/cappuccino.jpg';
+
+  // 5. Cold Beverages (Lemonade, Margaritas, Mocktails)
+  if (lower.includes('lemonade')) return '/images/products/lemonade.jpg';
+  if (lower.includes('strawberry')) return '/images/products/strawberry_margarita.jpg';
+  if (lower.includes('lagoon') || lower.includes('blue berry') || lower.includes('blueberry') || lower.includes('blue')) return '/images/products/blue_lagoon.jpg';
+  if (lower.includes('mint') || lower.includes('margarita') || lower.includes('margraita') || lower.includes('lime')) return '/images/products/cold_beverage.jpg';
+
+  // 6. Freshness (Water & Soft Drinks)
+  if (lower.includes('water')) return '/images/products/mineral_water.jpg';
+  if (lower.includes('pepsi')) return '/images/menu/pepsi.png';
+  if (lower.includes('coca') || lower.includes('cola')) return '/images/menu/cocacola.png';
+  if (lower.includes('sprite')) return '/images/menu/sprite.png';
+  if (lower.includes('7up')) return '/images/menu/7up.png';
+  if (lower.includes('fanta')) return '/images/menu/fanta.png';
+  if (lower.includes('tin') || lower.includes('reg. drink') || lower.includes('drink') || lower.includes('ltr')) return '/images/products/tin_drink.jpg';
+
+  // 7. Specific Pizzas Mappings
   if (lower.includes('tikka')) return '/images/menu/tikka_pizza.png';
   if (lower.includes('fajita')) return '/images/menu/fajita_pizza.png';
   if (lower.includes('vegi') || lower.includes('vegetable')) return '/images/menu/vegetable_pizza.png';
@@ -95,39 +125,25 @@ export const getImageUrl = (prod) => {
   if (lower.includes('zone special') || lower.includes('supreme') || lower.includes('malai boti') || lower.includes('creemi')) return '/images/menu/special_pizza.png';
   if (lower.includes('pizza')) return '/images/products/traditional_pizza.jpg';
 
-  // Specific Burgers Mappings
+  // 8. Specific Burgers Mappings
   if (lower.includes('grill') || lower.includes('wehshi') || lower.includes('mighty')) return '/images/products/grill_burger.jpg';
   if (lower.includes('zinger cheese') || lower.includes('z.s zinger')) return '/images/menu/zinger_cheese_burger.png';
   if (lower.includes('zinger')) return '/images/menu/zinger_burger.png';
   if (lower.includes('chapli') || lower.includes('ragi') || lower.includes('patty')) return '/images/menu/patty_burger.png';
   if (lower.includes('burger')) return '/images/products/zinger_burger.jpg';
 
-  // Shawarmas & Paratha Rolls
+  // 9. Shawarmas & Paratha Rolls
   if (lower.includes('shawarma')) return '/images/menu/chicken_shawarma.png';
   if (lower.includes('paratha') || lower.includes('roll') || lower.includes('wrap') || lower.includes('twister')) return '/images/menu/paratha_roll.png';
 
-  // Pastas & Macaroni
+  // 10. Pastas & Macaroni
   if (lower.includes('crunchy') || lower.includes('macaroni')) return '/images/menu/crunchy_pasta.png';
   if (lower.includes('pasta')) return '/images/menu/creamy_pasta.png';
 
-  // Fries & Starters
+  // 11. Fries & Starters
   if (lower.includes('fries') || lower.includes('sticks')) return '/images/menu/loaded_fries.png';
   if (lower.includes('wings') || lower.includes('nuggets') || lower.includes('hot shots') || lower.includes('fried chicken')) return '/images/products/fried_chicken.jpg';
 
-  // Drinks & Beverages Mappings
-  if (lower.includes('pepsi')) return '/images/menu/pepsi.png';
-  if (lower.includes('coca') || lower.includes('cola')) return '/images/menu/cocacola.png';
-  if (lower.includes('sprite')) return '/images/menu/sprite.png';
-  if (lower.includes('7up')) return '/images/menu/7up.png';
-  if (lower.includes('fanta')) return '/images/menu/fanta.png';
-  if (lower.includes('drink') || lower.includes('water') || lower.includes('tin') || lower.includes('margarita') || lower.includes('lagoon') || lower.includes('lime') || lower.includes('tea') || lower.includes('chai') || lower.includes('coffee') || lower.includes('latte') || lower.includes('shake') || lower.includes('colada')) {
-    return '/images/products/cold_beverage.jpg';
-  }
-
-  // Desserts
-  if (lower.includes('cake') || lower.includes('ice creme') || lower.includes('ice cream') || lower.includes('dessert')) {
-    return '/images/products/molten_lava_cake.jpg';
-  }
   return '/images/products/traditional_pizza.jpg';
 };
 
