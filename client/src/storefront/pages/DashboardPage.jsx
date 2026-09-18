@@ -177,7 +177,7 @@ export default function DashboardPage() {
                           <div className="textwidget custom-html-widget">
                             <ul className="footerul">
                               <li className="footerul1"><i className="fa fa-location-arrow" /> Address</li>
-                              <li className="footerul2 mb-1">IBRAHIM PLAZA, SHALIMAR ARCADE, NAI WALA ROAD, NEAR BANK AL-HABIB, HARAPPA STATION.</li>
+                              <li className="footerul2 mb-1">ADA SHREENWALA MOR, LAHORE - MULTAN ROAD, SAHIWAL.</li>
                               <li className="footerul1"><i className="fa fa-clock" /> Free Home Delivery (1.5 KM)</li>
                               <li className="footerul2 footerul3">Minimum Order: <span>Rs. 600/-</span></li>
                             </ul>
