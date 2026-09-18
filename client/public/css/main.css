@@ -786,8 +786,8 @@ figure.wp-block-audio audio {
 }
 
 .top-fixed .navbar-brand img {
-  max-width: 150px;
-  height: auto !important;
+  max-width: 250px;
+  height: 60px !important;
 }
 
 button.navbar-toggler {
