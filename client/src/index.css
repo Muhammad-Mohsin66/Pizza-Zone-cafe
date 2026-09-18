@@ -246,3 +246,55 @@ button.ck-nav-cta:hover * {
   background: var(--primary-teal);
   border-radius: 10px;
 }
+
+/* Hero Banner Text Layout Fix - prevents 'PIZZA ZONE & CAFÉ' text overlapping burger image on right */
+.hero-text .hero-text-text {
+  max-width: 44% !important;
+  margin-left: 0 !important;
+  padding-left: 15px !important;
+}
+
+.hero-text .hero-text-text h1,
+.hero-text .hero-text-text h2.maintext2a {
+  font-size: 80px !important;
+  line-height: 1.05 !important;
+  margin-left: 0 !important;
+  margin-bottom: 8px !important;
+  white-space: nowrap !important;
+}
+
+.hero-text .hero-text-text p.hero1textsmall {
+  max-width: 100% !important;
+  font-size: 18px !important;
+  line-height: 28px !important;
+  margin-bottom: 24px !important;
+}
+
+@media all and (max-width: 1200px) {
+  .hero-text .hero-text-text h1,
+  .hero-text .hero-text-text h2.maintext2a {
+    font-size: 68px !important;
+  }
+}
+
+@media all and (max-width: 992px) {
+  .hero-text .hero-text-text {
+    max-width: 50% !important;
+  }
+  .hero-text .hero-text-text h1,
+  .hero-text .hero-text-text h2.maintext2a {
+    font-size: 56px !important;
+  }
+}
+
+@media all and (max-width: 767px) {
+  .hero-text .hero-text-text {
+    max-width: 100% !important;
+    padding-left: 0 !important;
+  }
+  .hero-text .hero-text-text h1,
+  .hero-text .hero-text-text h2.maintext2a {
+    font-size: 48px !important;
+    white-space: normal !important;
+  }
+}

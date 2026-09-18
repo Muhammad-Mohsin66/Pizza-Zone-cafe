@@ -2064,18 +2064,20 @@ body.admin-bar .full-screen2 .nav-button {
 .hero-text .hero-text-text {
   margin-top: 280px;
   color: #fff;
+  max-width: 44%;
 }
 
 .hero-text .hero-text-text h1,
 .hero-text .hero-text-text h2.maintext2a {
-  margin-left: -5px;
-  margin-bottom: 12px;
-  font-size: 120px;
-  line-height: 1;
+  margin-left: 0;
+  margin-bottom: 8px;
+  font-size: 80px;
+  line-height: 1.05;
   font-weight: 900;
   color: #fff;
   text-transform: uppercase;
   word-wrap: normal;
+  white-space: nowrap;
 }
 
 .hero-text .hero-text-text h1 {
