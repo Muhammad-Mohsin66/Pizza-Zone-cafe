@@ -518,12 +518,10 @@ export default function OrderTrackingPage() {
                 <div className="justify-content-end custom-mega-menu custom-mega-menub collapse navbar-collapse" id="main_nav">
                   <ul id="menu-menu-1" className="navbar-nav">
                     <li className="menu-item"><a href="/">HOME</a></li>
-                    <li className="menu-item"><a href="/shop">SHOP</a></li>
-                    <li className="menu-item"><a href="/about">ABOUT</a></li>
-                    <li className="menu-item"><a href="/pages">PAGES</a></li>
-                    <li className="menu-item"><a href="/contact">CONTACT</a></li>
-                    <li className="menu-item"><a href="/orders" className="ck-nav-active">ORDERS</a></li>
-                    <li className="menu-item ck-ml-8"><a href="/contact" className="ck-nav-cta"><i className="fa fa-envelope ck-mr-6" />CONTACT US</a></li>
+                    <li className="menu-item"><a href="/shop">MENU</a></li>
+                    <li className="menu-item"><a href="/orders">ORDERS</a></li>
+                    <li className="menu-item current-menu-item"><a href="/orders" className="ck-nav-active">TRACK ORDER</a></li>
+                    <li className="menu-item ck-ml-8"><a href="/login" className="ck-nav-cta"><i className="fa fa-sign-in-alt ck-mr-6" />LOGIN</a></li>
                   </ul>
                 </div>
               </nav>

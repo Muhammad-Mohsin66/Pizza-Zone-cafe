@@ -61,9 +61,16 @@ img {
 
 .top-fixed a,
 .navbar-brand,
-.ck-nav-active,
 .menu-item a {
   color: #ffffff !important;
+}
+
+.top-fixed .navbar ul.navbar-nav > li.current-menu-item > a,
+.top-fixed .navbar ul.navbar-nav > li > a.ck-nav-active,
+.navbar ul.navbar-nav > li.current-menu-item > a,
+.navbar ul.navbar-nav > li > a.ck-nav-active,
+a.ck-nav-active {
+  color: #fbb731 !important;
 }
 
 .top-fixed .navbar-brand,
@@ -147,15 +154,25 @@ button.ck-nav-cta:hover * {
 
 /* Page Banner */
 .page-banner {
-  background: linear-gradient(135deg, var(--dark-teal) 0%, var(--primary-teal) 100%) !important;
+  background: linear-gradient(135deg, #0C4C7B 0%, #1B2A49 100%) !important;
   color: #ffffff !important;
-  padding: 3rem 1rem !important;
+  padding: 105px 1rem 45px !important;
   text-align: center;
 }
 
 .page-banner h1 {
   font-weight: 900 !important;
   letter-spacing: 1px;
+  color: #fbb731 !important;
+  font-size: 2.6rem !important;
+  text-transform: uppercase !important;
+  margin-bottom: 8px !important;
+}
+
+.page-banner p {
+  color: #ffffff !important;
+  font-size: 1.1rem !important;
+  margin: 0 !important;
 }
 
 /* Menu Section Headers */

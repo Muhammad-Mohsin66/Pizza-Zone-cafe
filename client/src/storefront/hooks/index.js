@@ -114,9 +114,11 @@ export function useNavLabelNormalization(enabled = true) {
 
     const navItems = Array.from(menu.querySelectorAll(':scope > li')).filter((li) => {
       const a = li.querySelector('a');
+      const btn = li.querySelector('button');
+      if (btn && (btn.id === 'open-cart-btn' || btn.classList.contains('cart-nav-btn'))) return false;
       if (!a) return false;
       const txt = (a.textContent || '').trim().toUpperCase();
-      return txt !== 'LOGIN';
+      return !txt.includes('LOGIN') && !txt.includes('ACCOUNT') && !txt.includes('DASHBOARD');
     });
 
     for (let i = 0; i < desired.length && i < navItems.length; i += 1) {
@@ -126,9 +128,12 @@ export function useNavLabelNormalization(enabled = true) {
       anchor.setAttribute('href', desired[i].href);
 
       // Dynamically highlight active menu items
-      const isHomeActive = desired[i].href === '/' && location.pathname === '/';
-      const isOtherActive = desired[i].href !== '/' && location.pathname.startsWith(desired[i].href);
-      if (isHomeActive || isOtherActive) {
+      const isHomeActive = desired[i].text === 'HOME' && location.pathname === '/';
+      const isMenuActive = desired[i].text === 'MENU' && (location.pathname === '/shop' || location.pathname.startsWith('/shop') || location.pathname.startsWith('/menu'));
+      const isTrackActive = desired[i].text === 'TRACK ORDER' && location.pathname.includes('/track');
+      const isOrdersActive = desired[i].text === 'ORDERS' && (location.pathname === '/orders' || location.pathname.startsWith('/orders') || location.pathname.startsWith('/customer/orders')) && !location.pathname.includes('/track');
+
+      if (isHomeActive || isMenuActive || isTrackActive || isOrdersActive) {
         anchor.classList.add('ck-nav-active');
         navItems[i].classList.add('current-menu-item');
       } else {
